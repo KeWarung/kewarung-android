@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">KeWarung</string>
+    <string name="home">Home</string>
+    <string name="kasir">Kasir</string>
+    <string name="kelola">Kelola Barang</string>
+    <string name="laporan">Laporan</string>
 </resources>
