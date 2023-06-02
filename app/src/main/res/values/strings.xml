@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KeWarung</string>
+ <string name="app_name">KeWarung</string>
     <string name="home">Home</string>
     <string name="kasir">KASIR</string>
     <string name="kelola">KELOLA BARANG</string>
@@ -28,13 +28,6 @@
     <string name="detail">Detail</string>
     <string name="detaillaporan">DETAIL LAPORAN</string>
     <string name="download">Download</string>
-    <string name="kelolaa">Kelola</string>
-    <string name="stoksekarang">Stok Sekarang :</string>
-    <string name="hargabarang">Harga Barang</string>
-    <string name="tambahstok">Tambah Stok</string>
-    <string name="simpan">SIMPAN</string>
-    <string name="tambahBarang">TAMBAH BARANG</string>
-    <string name="uploudFoto">UPLOUD FOTO</string>
     <string name="profile_image">Profile Image</string>
     <string name="welcome">Welcome</string>
     <string name="to">to</string>
@@ -42,6 +35,7 @@
     <string name="email">email</string>
     <string name="format_email">example@email.com</string>
     <string name="password">Password</string>
+    <string name="passwaord">passwaord</string>
     <string name="login">Login</string>
     <string name="sudah_punya_akun">Sudah punya akun?</string>
     <string name="belum">Belum</string>
