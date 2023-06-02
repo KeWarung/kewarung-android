@@ -63,7 +63,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
-        android:id="@+id/updateFoto"
+        android:id="@+id/btn_updateFoto"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="350dp"
