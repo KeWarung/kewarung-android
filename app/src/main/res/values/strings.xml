@@ -4,4 +4,12 @@
     <string name="kasir">Kasir</string>
     <string name="kelola">Kelola Barang</string>
     <string name="laporan">Laporan</string>
+    <string name="register">Register</string>
+    <string name="buatakun">Buat Akun KeWarung</string>
+    <string name="namatoko">Nama Toko</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirmpass">Konfirmasi Password</string>
+    <string name="punyaakun">Sudah Punya Akun?</string>
+    <string name="sudah">Sudah</string>
 </resources>
