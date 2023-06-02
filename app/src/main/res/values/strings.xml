@@ -25,4 +25,6 @@
     <string name="harga">Harga</string>
     <string name="stok">Stok</string>
     <string name="jumlah">0</string>
+    <string name="succes">Transaksi Sukses</string>
+    <string name="back">Kembali Ke Home</string>
 </resources>
