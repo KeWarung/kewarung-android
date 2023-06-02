@@ -30,4 +30,11 @@
     <string name="detail">Detail</string>
     <string name="detaillaporan">DETAIL LAPORAN</string>
     <string name="download">Download</string>
+    <string name="kelolaa">Kelola</string>
+    <string name="stoksekarang">Stok Sekarang :</string>
+    <string name="hargabarang">Harga Barang</string>
+    <string name="tambahstok">Tambah Stok</string>
+    <string name="simpan">SIMPAN</string>
+    <string name="tambahBarang">TAMBAH BARANG</string>
+    <string name="uploudFoto">UPLOUD FOTO</string>
 </resources>
