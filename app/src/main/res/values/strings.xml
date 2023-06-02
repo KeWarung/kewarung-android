@@ -37,17 +37,11 @@
     <string name="simpan">SIMPAN</string>
     <string name="tambahBarang">TAMBAH BARANG</string>
     <string name="uploudFoto">UPLOUD FOTO</string>
-      <string name="kasir">Kasir</string>
-    <string name="kelola">Kelola Barang</string>
-    <string name="laporan">Laporan</string>
     <string name="profile_image">Profile Image</string>
     <string name="welcome">Welcome</string>
     <string name="to">to</string>
     <string name="kewarung_kelola_warung">KeWarung : Kelola Warung</string>
-    <string name="email">email</string>
     <string name="format_email">example@email.com</string>
-    <string name="password">Password</string>
-    <string name="passwaord">passwaord</string>
     <string name="login">Login</string>
     <string name="sudah_punya_akun">Sudah punya akun?</string>
     <string name="belum">Belum</string>
