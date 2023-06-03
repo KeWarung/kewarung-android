@@ -45,4 +45,6 @@
     <string name="login">Login</string>
     <string name="sudah_punya_akun">Sudah punya akun?</string>
     <string name="belum">Belum</string>
+    <string name="succes">Transaksi Sukses</string>
+    <string name="kembali">Kembali Ke Home</string>
 </resources>
