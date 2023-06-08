@@ -2,10 +2,14 @@ package com.bangkit.kewarung
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.bangkit.kewarung.databinding.ActivityKelolaBarangBinding
 
 class KelolaBarangActivity : AppCompatActivity() {
+
+    private lateinit var  binding: ActivityKelolaBarangBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_kelola_barang)
+        binding = ActivityKelolaBarangBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 }
