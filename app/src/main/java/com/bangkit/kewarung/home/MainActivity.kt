@@ -15,9 +15,9 @@ import com.bangkit.kewarung.home.kasir.KasirActivity
 import com.bangkit.kewarung.home.kelola.KelolaActivity
 import com.bangkit.kewarung.home.laporan.LaporanActivity
 
+val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 class MainActivity : AppCompatActivity() {
 
-    val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var mainViewModel: MainViewModel
@@ -60,6 +60,19 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this@MainActivity, LaporanActivity::class.java)
                 startActivity(intent)
             }
+            btnLogout.setOnClickListener {
+                mainViewModel.saveToken("")
+                val i = Intent(this@MainActivity, LoginActivity::class.java)
+                i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(i)
+            }
         }
+    }
+
+    override fun onBackPressed() {
+        val a = Intent(Intent.ACTION_MAIN)
+        a.addCategory(Intent.CATEGORY_HOME)
+        a.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(a)
     }
 }

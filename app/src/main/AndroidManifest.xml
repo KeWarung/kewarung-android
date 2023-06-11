@@ -42,10 +42,10 @@
             android:name=".authentication.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".home.MainActivity"
+            android:name=".authentication.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".authentication.LoginActivity"
+            android:name=".home.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
