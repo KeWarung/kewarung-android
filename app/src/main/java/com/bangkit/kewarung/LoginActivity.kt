@@ -1,7 +1,8 @@
 package com.bangkit.kewarung
 
-import androidx.appcompat.app.AppCompatActivity
+
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.bangkit.kewarung.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
