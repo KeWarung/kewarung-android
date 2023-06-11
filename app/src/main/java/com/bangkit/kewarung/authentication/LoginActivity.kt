@@ -78,7 +78,7 @@ class LoginActivity : AppCompatActivity() {
                 } else {
                     showLoading(false)
                     Log.e(ContentValues.TAG, "onFailure: ${response.message()}")
-                    Toast.makeText(this@LoginActivity, response.message(), Toast.LENGTH_LONG)
+                    Toast.makeText(this@LoginActivity, response.message().toString(), Toast.LENGTH_LONG)
                         .show()
                 }
             }
@@ -86,7 +86,7 @@ class LoginActivity : AppCompatActivity() {
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 showLoading(false)
                 Log.e(ContentValues.TAG, "onFailure: ${t.message}")
-                Toast.makeText(this@LoginActivity, t.message, Toast.LENGTH_LONG).show()
+                Toast.makeText(this@LoginActivity, t.message.toString(), Toast.LENGTH_LONG).show()
             }
 
         })
