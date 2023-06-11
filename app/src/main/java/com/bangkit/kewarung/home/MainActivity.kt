@@ -1,9 +1,12 @@
-package com.bangkit.kewarung
+package com.bangkit.kewarung.home
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bangkit.kewarung.databinding.ActivityMainBinding
+import com.bangkit.kewarung.home.kasir.KasirActivity
+import com.bangkit.kewarung.home.kelola.KelolaActivity
+import com.bangkit.kewarung.home.laporan.LaporanActivity
 
 class MainActivity : AppCompatActivity() {
 

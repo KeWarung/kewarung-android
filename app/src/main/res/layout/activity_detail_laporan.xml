@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailLaporanActivity">
+    tools:context=".home.laporan.DetailLaporanActivity">
 
     <View
         android:id="@+id/_bg__home"

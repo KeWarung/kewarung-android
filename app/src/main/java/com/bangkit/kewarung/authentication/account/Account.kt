@@ -1,4 +1,4 @@
-package com.bangkit.kewarung.account
+package com.bangkit.kewarung.authentication.account
 
 data class Account (
     val email: String,

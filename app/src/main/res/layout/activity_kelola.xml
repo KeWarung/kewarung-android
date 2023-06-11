@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".KelolaActivity">
+    tools:context=".home.kelola.KelolaActivity">
 
     <View
         android:id="@+id/_bg__home"

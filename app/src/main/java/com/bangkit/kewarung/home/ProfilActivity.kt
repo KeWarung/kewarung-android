@@ -1,4 +1,4 @@
-package com.bangkit.kewarung
+package com.bangkit.kewarung.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

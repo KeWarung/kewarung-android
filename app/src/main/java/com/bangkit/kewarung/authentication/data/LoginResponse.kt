@@ -1,4 +1,4 @@
-package com.bangkit.kewarung.data
+package com.bangkit.kewarung.authentication.data
 
 data class LoginResponse(
     val message: String,

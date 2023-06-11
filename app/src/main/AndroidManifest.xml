@@ -13,37 +13,37 @@
         android:theme="@style/Theme.KeWarung"
         tools:targetApi="31">
         <activity
-            android:name=".TambahBarangActivity"
+            android:name=".home.kasir.TambahBarangActivity"
             android:exported="false" />
         <activity
-            android:name=".KelolaActivity"
+            android:name=".home.kelola.KelolaActivity"
             android:exported="false" />
         <activity
-            android:name=".KelolaBarangActivity"
+            android:name=".home.kelola.KelolaBarangActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailLaporanActivity"
+            android:name=".home.laporan.DetailLaporanActivity"
             android:exported="false" />
         <activity
-            android:name=".LaporanActivity"
+            android:name=".home.laporan.LaporanActivity"
             android:exported="false" />
         <activity
-            android:name=".AddActivity"
+            android:name=".home.kasir.AddActivity"
             android:exported="false" />
         <activity
-            android:name=".KasirActivity"
+            android:name=".home.kasir.KasirActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfilActivity"
+            android:name=".home.ProfilActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".authentication.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".home.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".authentication.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
