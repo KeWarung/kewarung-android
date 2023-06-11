@@ -74,4 +74,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:text="@string/logout"
+        android:textStyle="bold"
+        android:background="@drawable/button_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

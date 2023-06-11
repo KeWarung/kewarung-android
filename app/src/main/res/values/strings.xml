@@ -47,4 +47,6 @@
     <string name="belum">Belum</string>
     <string name="succes">Transaksi Sukses</string>
     <string name="kembali">Kembali Ke Home</string>
+    <string name="login_sucess">Login Success</string>
+    <string name="logout">Logout</string>
 </resources>
