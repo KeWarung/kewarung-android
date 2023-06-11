@@ -2,6 +2,7 @@ package com.bangkit.kewarung.api
 
 import com.bangkit.kewarung.authentication.account.Account
 import com.bangkit.kewarung.authentication.data.LoginResponse
+import com.bangkit.kewarung.authentication.data.RegisterResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.Field
@@ -15,4 +16,12 @@ interface ApiService {
         @Field("email") email: String,
         @Field("password") password: String
     ): Call<LoginResponse>
+
+    @FormUrlEncoded
+    @POST("users")
+    fun register(
+        @Field("email") email: String,
+        @Field("password") password: String,
+        @Field("nama_toko") nama_toko: String
+    ):Call<RegisterResponse>
 }
