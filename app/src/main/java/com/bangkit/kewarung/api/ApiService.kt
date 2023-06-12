@@ -1,11 +1,10 @@
 package com.bangkit.kewarung.api
 
-import com.bangkit.kewarung.authentication.account.Account
 import com.bangkit.kewarung.authentication.data.LoginResponse
+import com.bangkit.kewarung.authentication.data.LogoutResponse
 import com.bangkit.kewarung.authentication.data.ProfileResponse
 import com.bangkit.kewarung.authentication.data.RegisterResponse
 import retrofit2.Call
-import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -31,7 +30,10 @@ interface ApiService {
 
     @GET("users/{userId}")
     fun getProfile(
-        @Header("Authorization") token:String,
+        @Header("Cookie") token: String,
         @Path("userId") userId: String
-    ):Call<ProfileResponse>
+    ): Call<ProfileResponse>
+
+    @GET("logout")
+    fun logout():Call<LogoutResponse>
 }

@@ -29,8 +29,8 @@ class ProfileViewModel(private  val pref: UserSession): ViewModel() {
         return pref.getToken().asLiveData()
     }
 
-    fun setDataUser(userId: String, token: String){
-        ApiConfig.getApiService().getProfile("Bearer $token",userId).enqueue(
+    fun setDataUser(token:String,userId: String){
+        ApiConfig.getApiService().getProfile("jwt=$token",userId).enqueue(
             object: Callback<ProfileResponse>{
                 override fun onResponse(
                     call: Call<ProfileResponse>,
@@ -38,6 +38,8 @@ class ProfileViewModel(private  val pref: UserSession): ViewModel() {
                 ) {
                     if(response.isSuccessful){
                             dataUser.postValue(response.body())
+                            Log.e("onFailure",response.body().toString())
+                            Log.e("onFailure",response.message().toString())
                     }
                 }
 

@@ -27,8 +27,9 @@ class ProfilActivity : AppCompatActivity() {
                     if (userId.isEmpty()) {
                         Log.e("onFailure","userId tidak ada")
                     } else {
+                        Log.e("onFailure",token)
                         Log.e("onFailure",userId)
-                        profileViewModel.setDataUser(userId,token)
+                        profileViewModel.setDataUser(token,userId)
                         profileViewModel.getDetailUser().observe(this) {
                             binding.apply {
                                 tvEmail.text = it.data.email
