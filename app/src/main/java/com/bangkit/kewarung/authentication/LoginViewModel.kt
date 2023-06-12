@@ -12,4 +12,10 @@ class LoginViewModel(private val pref: UserSession) : ViewModel() {
             pref.saveToken(token)
         }
     }
+
+    fun saveUserId(userId: String){
+        viewModelScope.launch {
+            pref.saveUserId(userId)
+        }
+    }
 }

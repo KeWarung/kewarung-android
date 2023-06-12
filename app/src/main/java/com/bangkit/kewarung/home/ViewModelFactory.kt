@@ -15,6 +15,9 @@ class ViewModelFactory(private val pref: UserSession) : ViewModelProvider.NewIns
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
                 LoginViewModel(pref) as T
             }
+            modelClass.isAssignableFrom(ProfileViewModel::class.java)->{
+                ProfileViewModel(pref) as T
+            }
             else -> throw IllegalArgumentException("Unknown Viewmodel Class: " + modelClass.name)
         }
     }

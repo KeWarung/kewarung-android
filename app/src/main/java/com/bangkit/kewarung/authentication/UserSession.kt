@@ -8,17 +8,30 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class UserSession private constructor(private val dataStore: DataStore<Preferences>) {
-    private val key = stringPreferencesKey("user_token")
+    private val KEY = stringPreferencesKey("user_token")
+    private val USER_ID = stringPreferencesKey("user_id")
 
     fun getToken(): Flow<String> {
         return dataStore.data.map { preferences ->
-            preferences[key] ?: ""
+                preferences[KEY] ?: ""
         }
     }
 
     suspend fun saveToken(token: String) {
         dataStore.edit { preferences ->
-            preferences[key] = token
+            preferences[KEY] = token
+        }
+    }
+
+    fun getUserId():Flow<String>{
+        return dataStore.data.map{preferences ->
+            preferences[USER_ID]?: ""
+        }
+    }
+
+    suspend fun saveUserId(userId: String){
+        dataStore.edit { preferences ->
+            preferences[USER_ID] = userId
         }
     }
 
