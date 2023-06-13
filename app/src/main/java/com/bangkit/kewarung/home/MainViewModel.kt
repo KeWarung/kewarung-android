@@ -20,11 +20,6 @@ class MainViewModel (private val pref: UserSession) : ViewModel() {
     fun getToken(): LiveData<String> {
         return pref.getToken().asLiveData()
     }
-    fun saveToken(token: String) {
-        viewModelScope.launch {
-            pref.saveToken(token)
-        }
-    }
 
     fun logout(){
         ApiConfig.getApiService().logout().enqueue(

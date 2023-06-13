@@ -19,11 +19,11 @@ import com.bangkit.kewarung.authentication.data.LoginResponse
 import com.bangkit.kewarung.databinding.ActivityLoginBinding
 import com.bangkit.kewarung.home.MainActivity
 import com.bangkit.kewarung.home.ViewModelFactory
+import com.bangkit.kewarung.home.dataStore
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding

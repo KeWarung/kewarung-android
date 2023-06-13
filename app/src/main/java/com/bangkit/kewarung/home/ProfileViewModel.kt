@@ -18,11 +18,15 @@ import retrofit2.Response
 
 class ProfileViewModel(private  val pref: UserSession): ViewModel() {
     val dataUser = MutableLiveData<ProfileResponse>()
-    private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isLoading
 
     fun getUserId(): LiveData<String> {
         return pref.getUserId().asLiveData()
+    }
+
+    fun saveToken(token: String) {
+        viewModelScope.launch {
+            pref.saveToken(token)
+        }
     }
 
     fun getToken(): LiveData<String> {

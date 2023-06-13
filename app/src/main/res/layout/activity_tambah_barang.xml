@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.kasir.TambahBarangActivity">
+    tools:context=".home.kelola.TambahBarangActivity">
 
     <View
         android:id="@+id/_bg__home"
@@ -30,6 +30,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <View
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/kolom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <ImageView
         android:id="@+id/image"
         android:layout_width="130dp"
@@ -40,6 +50,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:src="@tools:sample/avatars"/>
+
 
     <Button
         android:id="@+id/btn_simpan"

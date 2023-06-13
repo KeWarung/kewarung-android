@@ -13,12 +13,11 @@ import com.bangkit.kewarung.authentication.LoginActivity
 import com.bangkit.kewarung.authentication.UserSession
 import com.bangkit.kewarung.databinding.ActivityMainBinding
 import com.bangkit.kewarung.home.kasir.KasirActivity
-import com.bangkit.kewarung.home.kelola.KelolaActivity
+import com.bangkit.kewarung.home.kelola.KelolaBarangActivity
 import com.bangkit.kewarung.home.laporan.LaporanActivity
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 class MainActivity : AppCompatActivity() {
-
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var mainViewModel: MainViewModel
@@ -54,19 +53,12 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             kelola.setOnClickListener {
-                val intent = Intent(this@MainActivity, KelolaActivity::class.java)
+                val intent = Intent(this@MainActivity, KelolaBarangActivity::class.java)
                 startActivity(intent)
             }
             laporan.setOnClickListener {
                 val intent = Intent(this@MainActivity, LaporanActivity::class.java)
                 startActivity(intent)
-            }
-            btnLogout.setOnClickListener {
-                mainViewModel.saveToken("")
-
-                val i = Intent(this@MainActivity, LoginActivity::class.java)
-                i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(i)
             }
         }
     }
