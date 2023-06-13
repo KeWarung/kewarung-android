@@ -1,5 +1,6 @@
 package com.bangkit.kewarung.api
 
+import com.bangkit.kewarung.authentication.data.AddBarangResponse
 import com.bangkit.kewarung.authentication.data.LoginResponse
 import com.bangkit.kewarung.authentication.data.LogoutResponse
 import com.bangkit.kewarung.authentication.data.ProfileResponse
@@ -36,4 +37,14 @@ interface ApiService {
 
     @GET("logout")
     fun logout():Call<LogoutResponse>
+
+    @FormUrlEncoded
+    @POST("products")
+    fun addBarang(
+        @Header("Cookie") token: String,
+        @Field("nama_produk") nama_produk: String,
+        @Field("harga") harga: String,
+        @Field("stok") stok: String,
+        @Field("foto") foto:String
+    ):Call<AddBarangResponse>
 }
