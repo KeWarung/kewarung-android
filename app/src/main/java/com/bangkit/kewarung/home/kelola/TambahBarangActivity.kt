@@ -61,7 +61,6 @@ class TambahBarangActivity : AppCompatActivity() {
         launcherIntentGallery.launch(chooser)
     }
 
-
     private fun Simpan(){
         if (getFile != null) {
             val file = reduceFileImage(getFile as File)

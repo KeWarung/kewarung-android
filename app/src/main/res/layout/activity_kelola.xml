@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:text="@string/namabarang"
+        android:text="@string/namabarang"
         android:layout_marginTop="280dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -60,7 +60,8 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:text="@string/stoksekarang"
+        android:textColor="@color/black"
+        android:text="@string/stoksekarang"
         android:layout_marginTop="330dp"
         android:layout_marginEnd="50dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,7 +79,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:text="@string/stok" />
+        android:text="@string/stok" />
 
     <View
         android:layout_width="match_parent"
@@ -99,11 +100,12 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:text="@string/kelolaa"
-        android:layout_marginTop="400dp"
+        android:textColor="@color/black"
+        android:text="@string/kelolaa"
+        android:layout_marginBottom="300dp"
         android:layout_marginStart="25dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"

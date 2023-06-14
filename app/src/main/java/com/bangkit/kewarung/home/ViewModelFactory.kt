@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bangkit.kewarung.authentication.LoginViewModel
 import com.bangkit.kewarung.authentication.UserSession
+import com.bangkit.kewarung.home.kelola.KelolaBarangViewModel
 import com.bangkit.kewarung.home.kelola.TambahBarangViewModel
 
 class ViewModelFactory(private val pref: UserSession) : ViewModelProvider.NewInstanceFactory() {
@@ -21,6 +22,9 @@ class ViewModelFactory(private val pref: UserSession) : ViewModelProvider.NewIns
             }
             modelClass.isAssignableFrom(TambahBarangViewModel::class.java)->{
                 TambahBarangViewModel(pref) as T
+            }
+            modelClass.isAssignableFrom(KelolaBarangViewModel::class.java)->{
+                KelolaBarangViewModel(pref) as T
             }
             else -> throw IllegalArgumentException("Unknown Viewmodel Class: " + modelClass.name)
         }
