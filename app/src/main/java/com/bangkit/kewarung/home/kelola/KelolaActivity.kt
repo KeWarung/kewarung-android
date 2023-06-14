@@ -18,6 +18,7 @@ class KelolaActivity : AppCompatActivity() {
         binding.apply {
             namaBarang.text = kelolaBarang.nama_produk
             stokBarang.text = kelolaBarang.stok.toString()
+            hargaBarang.text = kelolaBarang.harga.toString()
         }
     }
 
