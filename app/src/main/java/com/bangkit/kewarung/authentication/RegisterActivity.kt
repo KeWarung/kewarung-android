@@ -34,47 +34,56 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun register() {
-        showLoading(true)
-        val client = ApiConfig.getApiService().register(
-            binding.email.text.toString(),
-            binding.password.text.toString(),
-            binding.namatoko.text.toString()
-        )
-        client.enqueue(object : Callback<RegisterResponse> {
-            override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
-                val responseBody = response.body()
-                if (response.isSuccessful && responseBody != null) {
-                    if (response.errorBody().toString() == "404") {
-                        showLoading(false)
-                        Toast.makeText(
-                            this@RegisterActivity,
-                            responseBody.message,
-                            Toast.LENGTH_SHORT
-                        ).show()
+        val passwordInput = binding.password.text.toString().trim()
+        val confirmPass = binding.confirmpass.text.toString().trim()
+        if(passwordInput == confirmPass) {
+            showLoading(true)
+            val client = ApiConfig.getApiService().register(
+                binding.email.text.toString(),
+                binding.password.text.toString(),
+                binding.namatoko.text.toString()
+            )
+            client.enqueue(object : Callback<RegisterResponse> {
+                override fun onResponse(
+                    call: Call<RegisterResponse>,
+                    response: Response<RegisterResponse>
+                ) {
+                    val responseBody = response.body()
+                    if (response.isSuccessful && responseBody != null) {
+                        if (response.errorBody().toString() == "404") {
+                            showLoading(false)
+                            Toast.makeText(
+                                this@RegisterActivity,
+                                responseBody.message,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } else {
+                            goLogin()
+                            Toast.makeText(
+                                this@RegisterActivity,
+                                responseBody.message,
+                                Toast.LENGTH_LONG
+                            )
+                                .show()
+                        }
                     } else {
-                        goLogin()
-                        Toast.makeText(
-                            this@RegisterActivity,
-                            responseBody.message,
-                            Toast.LENGTH_LONG
-                        )
+                        showLoading(false)
+                        Log.e(ContentValues.TAG, "onFailure: ${response.message()}")
+                        Toast.makeText(this@RegisterActivity, response.message(), Toast.LENGTH_LONG)
                             .show()
                     }
-                } else {
-                    showLoading(false)
-                    Log.e(ContentValues.TAG, "onFailure: ${response.message()}")
-                    Toast.makeText(this@RegisterActivity, response.message(), Toast.LENGTH_LONG)
-                        .show()
                 }
-            }
 
-            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
-                showLoading(false)
-                Log.e(ContentValues.TAG, "onFailure: ${t.message}")
-                Toast.makeText(this@RegisterActivity, t.message, Toast.LENGTH_LONG).show()
-            }
+                override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                    showLoading(false)
+                    Log.e(ContentValues.TAG, "onFailure: ${t.message}")
+                    Toast.makeText(this@RegisterActivity, t.message, Toast.LENGTH_LONG).show()
+                }
 
-        })
+            })
+        }else{
+            Toast.makeText(this, "Password Tidak Sama", Toast.LENGTH_SHORT).show()
+        }
     }
     private fun goLogin() {
         val i = Intent(this, LoginActivity::class.java)

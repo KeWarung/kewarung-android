@@ -77,7 +77,7 @@ class TambahBarangActivity : AppCompatActivity() {
             tambahBarangViewModel.getToken().observe(this) { token: String ->
                 tambahBarangViewModel.getUserId().observe(this){userId: String ->
                     val service = ApiConfig.getApiService()
-                        .addBarang("jwt=$token",userId,nama_produk,hargaProduk,stok,imageMultipart)
+                        .addBarang("jwt=$token",userId,nama_produk,hargaProduk,stok)
                     service.enqueue(object : Callback<AddBarangResponse> {
                         override fun onResponse(
                             call: Call<AddBarangResponse>,

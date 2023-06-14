@@ -35,15 +35,14 @@ interface ApiService {
     @GET("logout")
     fun logout():Call<LogoutResponse>
 
-    @Multipart
+    @FormUrlEncoded
     @POST("products/{userId}")
     fun addBarang(
         @Header("Cookie") token: String,
         @Path("userId") userId: String,
-        @Part("nama_produk") nama_produk: String,
-        @Part("harga") harga: Int,
-        @Part("stok") stok: Int,
-        @Part file: MultipartBody.Part
+        @Field("nama_produk") nama_produk: String,
+        @Field("harga") harga: Int,
+        @Field("stok") stok: Int
     ):Call<AddBarangResponse>
 
     @GET("products-users/{userId}")
