@@ -48,6 +48,7 @@ class KelolaBarangActivity : AppCompatActivity() {
         binding.btnTambah.setOnClickListener {
             val intent = Intent(this@KelolaBarangActivity, TambahBarangActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 

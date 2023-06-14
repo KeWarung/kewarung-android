@@ -46,7 +46,6 @@ class TambahBarangActivity : AppCompatActivity() {
         }
         binding.btnSimpan.setOnClickListener{
             Simpan()
-            intentMain()
         }
 
         val pref = UserSession.getInstance(dataStore)
@@ -85,12 +84,13 @@ class TambahBarangActivity : AppCompatActivity() {
                         ) {
                             if (response.isSuccessful) {
                                 val responseBody = response.body()
-                                if (responseBody != null && response.errorBody().toString() == "404") {
+                                if (responseBody != null) {
                                     Toast.makeText(
                                         this@TambahBarangActivity,
                                         "Berhasil Uploud",
                                         Toast.LENGTH_SHORT
                                     ).show()
+                                    intentMain()
                                 }
                             } else {
                                 Toast.makeText(

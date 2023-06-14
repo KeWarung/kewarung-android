@@ -33,7 +33,9 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
                     .into(image)
                 namaBarang.text = product.nama_produk
                 btnDetail.setOnClickListener {
-                    val intent = Intent(btnDetail.context, KelolaActivity::class.java)
+                    val intent = Intent(btnDetail.context, KelolaActivity::class.java).apply {
+                        putExtra(KelolaActivity.EXTRA_DETAIL,product)
+                    }
                     it.context.startActivity(intent)
                 }
 
