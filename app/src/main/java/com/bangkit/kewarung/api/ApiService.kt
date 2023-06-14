@@ -5,13 +5,9 @@ import com.bangkit.kewarung.authentication.data.LoginResponse
 import com.bangkit.kewarung.authentication.data.LogoutResponse
 import com.bangkit.kewarung.authentication.data.ProfileResponse
 import com.bangkit.kewarung.authentication.data.RegisterResponse
+import okhttp3.MultipartBody
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ApiService {
     @FormUrlEncoded
@@ -38,13 +34,14 @@ interface ApiService {
     @GET("logout")
     fun logout():Call<LogoutResponse>
 
-    @FormUrlEncoded
-    @POST("products")
+    @Multipart
+    @POST("products/{userId}")
     fun addBarang(
         @Header("Cookie") token: String,
-        @Field("nama_produk") nama_produk: String,
-        @Field("harga") harga: String,
-        @Field("stok") stok: String,
-        @Field("foto") foto:String
+        @Path("userId") userId: String,
+        @Part("nama_produk") nama_produk: String,
+        @Part("harga") harga: Int,
+        @Part("stok") stok: Int,
+        @Part file: MultipartBody.Part
     ):Call<AddBarangResponse>
 }
