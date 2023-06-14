@@ -41,9 +41,9 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
         }
     }
 
-    fun setProductData(product: DataXXX) {
+    fun setProductData(product: ArrayList<DataXXX>) {
         this.listStoryData.clear()
-        this.listStoryData.addAll(listOf(product))
+        this.listStoryData.addAll(product)
         notifyDataSetChanged()
     }
 }
