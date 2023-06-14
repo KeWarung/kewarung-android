@@ -1,6 +1,7 @@
 package com.bangkit.kewarung.api
 
 import com.bangkit.kewarung.authentication.data.AddBarangResponse
+import com.bangkit.kewarung.authentication.data.KelolaBarangResponse
 import com.bangkit.kewarung.authentication.data.LoginResponse
 import com.bangkit.kewarung.authentication.data.LogoutResponse
 import com.bangkit.kewarung.authentication.data.ProfileResponse
@@ -44,4 +45,10 @@ interface ApiService {
         @Part("stok") stok: Int,
         @Part file: MultipartBody.Part
     ):Call<AddBarangResponse>
+
+    @GET("products-users/{userId}")
+    fun getDataKelola(
+        @Header("Cookie") token: String,
+        @Path("userId") userId: String
+    ):Call<KelolaBarangResponse>
 }
