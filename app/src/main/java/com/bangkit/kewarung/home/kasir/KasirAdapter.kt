@@ -1,10 +1,12 @@
 package com.bangkit.kewarung.home.kasir
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.kewarung.authentication.data.DataXXX
 import com.bangkit.kewarung.databinding.ListSearchBinding
+import com.bangkit.kewarung.home.kelola.KelolaActivity
 import com.bumptech.glide.Glide
 
 class KasirAdapter: RecyclerView.Adapter<KasirAdapter.ViewHolder>() {
@@ -34,13 +36,19 @@ class KasirAdapter: RecyclerView.Adapter<KasirAdapter.ViewHolder>() {
                 harga.text = product.harga.toString()
                 stokBarang.text = product.stok.toString()
 
+                tambah.setOnClickListener {
+                    val intent = Intent(tambah.context, KasirActivity::class.java).apply {
+                        putExtra(KasirActivity.EXTRA_DETAIL,product)
+                    }
+                    it.context.startActivity(intent)
+                }
             }
         }
     }
 
-    fun setProductData(product: DataXXX) {
+    fun setProductData(product: ArrayList<DataXXX>) {
         this.listStoryData.clear()
-        this.listStoryData.addAll(listOf(product))
+        this.listStoryData.addAll(product)
         notifyDataSetChanged()
     }
 }

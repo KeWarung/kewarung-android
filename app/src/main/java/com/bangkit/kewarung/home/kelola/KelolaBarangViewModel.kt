@@ -44,7 +44,6 @@ class KelolaBarangViewModel(private val pref: UserSession) : ViewModel() {
 
             }
         )
-
     }
 
     fun getAllProduct():LiveData<ArrayList<DataXXX>>{

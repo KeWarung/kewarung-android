@@ -6,7 +6,6 @@ import android.util.Log
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bangkit.kewarung.R
 import com.bangkit.kewarung.authentication.UserSession
 import com.bangkit.kewarung.databinding.ActivityAddBinding
 import com.bangkit.kewarung.home.ViewModelFactory
@@ -28,6 +27,7 @@ class AddActivity : AppCompatActivity() {
         kasirAdapter = KasirAdapter()
 
         initView()
+
         with(binding){
             searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
                 override fun onQueryTextSubmit(query: String?): Boolean {

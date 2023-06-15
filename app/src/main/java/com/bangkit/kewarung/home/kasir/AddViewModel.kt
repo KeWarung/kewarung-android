@@ -16,7 +16,7 @@ import retrofit2.Response
 
 class AddViewModel(private val pref: UserSession) : ViewModel() {
 
-    val dataBarang = MutableLiveData<DataXXX>()
+    val dataBarang = MutableLiveData<ArrayList<DataXXX>>()
 
     fun getToken(): LiveData<String> {
         return pref.getToken().asLiveData()
@@ -45,7 +45,7 @@ class AddViewModel(private val pref: UserSession) : ViewModel() {
             }
         )
     }
-    fun getAllProduct(): LiveData<DataXXX> {
+    fun getAllProduct(): LiveData<ArrayList<DataXXX>> {
         return dataBarang
     }
 

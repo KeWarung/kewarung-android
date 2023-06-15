@@ -1,6 +1,6 @@
 package com.bangkit.kewarung.authentication.data
 
 data class SearchBarangResponse(
-    val `data`: DataXXX,
+    val `data`: ArrayList<DataXXX>,
     val message: String
 )
