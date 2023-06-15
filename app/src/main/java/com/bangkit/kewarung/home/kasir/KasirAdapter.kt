@@ -1,6 +1,5 @@
 package com.bangkit.kewarung.home.kasir
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -39,9 +38,9 @@ class KasirAdapter: RecyclerView.Adapter<KasirAdapter.ViewHolder>() {
         }
     }
 
-    fun setProductData(product: ArrayList<DataXXX>) {
+    fun setProductData(product: DataXXX) {
         this.listStoryData.clear()
-        this.listStoryData.addAll(product)
+        this.listStoryData.addAll(listOf(product))
         notifyDataSetChanged()
     }
 }

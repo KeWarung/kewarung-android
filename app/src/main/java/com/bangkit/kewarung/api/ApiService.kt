@@ -7,6 +7,7 @@ import com.bangkit.kewarung.authentication.data.LoginResponse
 import com.bangkit.kewarung.authentication.data.LogoutResponse
 import com.bangkit.kewarung.authentication.data.ProfileResponse
 import com.bangkit.kewarung.authentication.data.RegisterResponse
+import com.bangkit.kewarung.authentication.data.SearchBarangResponse
 import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
@@ -61,4 +62,9 @@ interface ApiService {
         @Field("stok") stok: Int
     ):Call<KelolaResponse>
 
+    @GET("products-name/{search}")
+    fun getDataSearch(
+        @Header("Cookie") token: String,
+        @Path("search") search: String
+    ):Call<SearchBarangResponse>
 }

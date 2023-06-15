@@ -9,13 +9,14 @@ import com.bangkit.kewarung.api.ApiConfig
 import com.bangkit.kewarung.authentication.UserSession
 import com.bangkit.kewarung.authentication.data.DataXXX
 import com.bangkit.kewarung.authentication.data.KelolaBarangResponse
+import com.bangkit.kewarung.authentication.data.SearchBarangResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class AddViewModel(private val pref: UserSession) : ViewModel() {
 
-    val dataUser = MutableLiveData<ArrayList<DataXXX>>()
+    val dataBarang = MutableLiveData<DataXXX>()
 
     fun getToken(): LiveData<String> {
         return pref.getToken().asLiveData()
@@ -25,29 +26,27 @@ class AddViewModel(private val pref: UserSession) : ViewModel() {
         return pref.getUserId().asLiveData()
     }
 
-    fun setAllProduct(token:String,userId: String){
-        ApiConfig.getApiService().getDataKelola("jwt=$token",userId).enqueue(
-            object: Callback<KelolaBarangResponse> {
+    fun setAllProduct(token:String,userId: String,name: String){
+        ApiConfig.getApiService().getDataSearch("jwt=$token","$name&$userId").enqueue(
+            object :Callback<SearchBarangResponse>{
                 override fun onResponse(
-                    call: Call<KelolaBarangResponse>,
-                    response: Response<KelolaBarangResponse>
+                    call: Call<SearchBarangResponse>,
+                    response: Response<SearchBarangResponse>
                 ) {
-                    if(response.isSuccessful){
-                        dataUser.postValue(response.body()?.data)
+                    if (response.isSuccessful){
+                        dataBarang.postValue(response.body()?.data)
                     }
                 }
 
-                override fun onFailure(call: Call<KelolaBarangResponse>, t: Throwable) {
-                    Log.e( "onFailure: ",t.message.toString())
+                override fun onFailure(call: Call<SearchBarangResponse>, t: Throwable) {
+                    Log.e("onFailure",t.message.toString())
                 }
 
             }
         )
-
     }
-
-    fun getAllProduct(): LiveData<ArrayList<DataXXX>> {
-        return dataUser
+    fun getAllProduct(): LiveData<DataXXX> {
+        return dataBarang
     }
 
 }
