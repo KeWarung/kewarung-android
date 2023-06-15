@@ -45,6 +45,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/barang"
         android:layout_marginTop="130dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

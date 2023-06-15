@@ -1,18 +1,18 @@
-package com.bangkit.kewarung.home.kelola
+package com.bangkit.kewarung.home.kasir
 
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bangkit.kewarung.authentication.data.DataXXX
-import com.bangkit.kewarung.databinding.ListKelolaBinding
+import com.bangkit.kewarung.databinding.ListSearchBinding
 import com.bumptech.glide.Glide
 
-class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
+class KasirAdapter: RecyclerView.Adapter<KasirAdapter.ViewHolder>() {
     private val listStoryData = ArrayList<DataXXX>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = ListKelolaBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val view = ListSearchBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(view)
     }
 
@@ -24,7 +24,7 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
         return listStoryData.size
     }
 
-    inner class ViewHolder(private val binding: ListKelolaBinding) :
+    inner class ViewHolder(private val binding: ListSearchBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(product: DataXXX) {
             binding.apply {
@@ -32,12 +32,9 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
                     .load(product.foto)
                     .into(image)
                 namaBarang.text = product.nama_produk
-                btnDetail.setOnClickListener {
-                    val intent = Intent(btnDetail.context, KelolaActivity::class.java).apply {
-                        putExtra(KelolaActivity.EXTRA_DETAIL,product)
-                    }
-                    it.context.startActivity(intent)
-                }
+                harga.text = product.harga.toString()
+                stokBarang.text = product.stok.toString()
+
             }
         }
     }
