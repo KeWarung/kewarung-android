@@ -2,6 +2,7 @@ package com.bangkit.kewarung.api
 
 import com.bangkit.kewarung.authentication.data.AddBarangResponse
 import com.bangkit.kewarung.authentication.data.KelolaBarangResponse
+import com.bangkit.kewarung.authentication.data.KelolaResponse
 import com.bangkit.kewarung.authentication.data.LoginResponse
 import com.bangkit.kewarung.authentication.data.LogoutResponse
 import com.bangkit.kewarung.authentication.data.ProfileResponse
@@ -50,4 +51,14 @@ interface ApiService {
         @Header("Cookie") token: String,
         @Path("userId") userId: String
     ):Call<KelolaBarangResponse>
+
+    @FormUrlEncoded
+    @PUT("products/{productId}")
+    fun updateDataBarang(
+        @Header("Cookie") token: String,
+        @Path("productId") productId: String,
+        @Field("harga") harga: Int,
+        @Field("stok") stok: Int
+    ):Call<KelolaResponse>
+
 }
