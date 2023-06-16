@@ -28,9 +28,6 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
         fun bind(product: DataXXX) {
             binding.apply {
-                Glide.with(itemView.context)
-                    .load(product.foto)
-                    .into(image)
                 namaBarang.text = product.nama_produk
                 btnDetail.setOnClickListener {
                     val intent = Intent(btnDetail.context, KelolaActivity::class.java).apply {

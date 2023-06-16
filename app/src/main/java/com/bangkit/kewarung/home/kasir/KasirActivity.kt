@@ -37,6 +37,7 @@ class KasirActivity : AppCompatActivity() {
         binding.btnTambah.setOnClickListener{
             val i = Intent(this, AddActivity::class.java)
             startActivity(i)
+            finish()
         }
     }
 

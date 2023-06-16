@@ -29,9 +29,6 @@ class KasirAdapter: RecyclerView.Adapter<KasirAdapter.ViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
         fun bind(product: DataXXX) {
             binding.apply {
-                Glide.with(itemView.context)
-                    .load(product.foto)
-                    .into(image)
                 namaBarang.text = product.nama_produk
                 harga.text = product.harga.toString()
                 stokBarang.text = product.stok.toString()

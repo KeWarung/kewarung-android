@@ -68,18 +68,6 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
-        android:id="@+id/btn_updateFoto"
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="350dp"
-        android:text="@string/update"
-        android:textStyle="bold"
-        android:background="@drawable/button_small"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <Button
         android:id="@+id/btn_logout"
         android:layout_width="140dp"
         android:layout_height="wrap_content"

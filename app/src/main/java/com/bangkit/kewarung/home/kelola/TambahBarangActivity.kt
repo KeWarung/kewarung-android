@@ -41,9 +41,6 @@ class TambahBarangActivity : AppCompatActivity() {
         binding = ActivityTambahBarangBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnUploudFoto.setOnClickListener{
-            UpluodImage()
-        }
         binding.btnSimpan.setOnClickListener{
             Simpan()
         }
@@ -51,13 +48,6 @@ class TambahBarangActivity : AppCompatActivity() {
         val pref = UserSession.getInstance(dataStore)
 
         tambahBarangViewModel = ViewModelProvider(this, ViewModelFactory(pref))[TambahBarangViewModel::class.java]
-    }
-
-    private fun UpluodImage(){
-        val intent =  Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
-        val chooser = Intent.createChooser(intent, "Choose a Picture")
-        launcherIntentGallery.launch(chooser)
     }
 
     private fun Simpan(){
@@ -133,16 +123,4 @@ class TambahBarangActivity : AppCompatActivity() {
         }
     }
 
-    private val launcherIntentGallery = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == RESULT_OK) {
-            val selectedImg = result.data?.data as Uri
-            selectedImg.let { uri ->
-                val myFile = uriToFile(uri, this@TambahBarangActivity)
-                getFile = myFile
-                binding.image.setImageURI(uri)
-            }
-        }
-    }
 }

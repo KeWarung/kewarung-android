@@ -42,8 +42,6 @@ class ProfileViewModel(private  val pref: UserSession): ViewModel() {
                 ) {
                     if(response.isSuccessful){
                             dataUser.postValue(response.body())
-                            Log.e("onFailure",response.body().toString())
-                            Log.e("onFailure",response.message().toString())
                     }
                 }
 

@@ -36,10 +36,10 @@
         android:id="@+id/namaBarang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:text="@string/namabarang"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="160dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

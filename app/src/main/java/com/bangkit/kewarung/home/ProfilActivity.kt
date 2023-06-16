@@ -30,8 +30,6 @@ class ProfilActivity : AppCompatActivity() {
                     if (userId.isEmpty()) {
                         Log.e("onFailure","userId tidak ada")
                     } else {
-                        Log.e("onFailure",token)
-                        Log.e("onFailure",userId)
                         profileViewModel.setDataUser(token,userId)
                         profileViewModel.getDetailUser().observe(this) {
                             binding.apply {
@@ -49,23 +47,6 @@ class ProfilActivity : AppCompatActivity() {
             val i = Intent(this@ProfilActivity, LoginActivity::class.java)
             i.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(i)
-        }
-
-        binding.btnUpdateFoto.setOnClickListener {
-            UpluodImage()
-        }
-    }
-
-    private fun UpluodImage(){
-        val intent =  Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
-        startActivityForResult(intent, TambahBarangActivity.IMAGE_REQUEST_CODE)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == TambahBarangActivity.IMAGE_REQUEST_CODE && resultCode == RESULT_OK){
-            binding.ivProfile.setImageURI(data?.data)
         }
     }
 }
