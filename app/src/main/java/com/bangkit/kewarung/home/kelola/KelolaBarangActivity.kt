@@ -34,8 +34,6 @@ class KelolaBarangActivity : AppCompatActivity() {
                     if (userId.isEmpty()) {
                         Log.e("onFailure","userId tidak ada")
                     } else {
-                        Log.e("onFailure",token)
-                        Log.e("onFailure",userId)
                         kelolaBarangViewModel.setAllProduct(token,userId)
                         kelolaBarangViewModel.getAllProduct().observe(this){
                             productAdapter.setProductData(it)
@@ -48,6 +46,7 @@ class KelolaBarangActivity : AppCompatActivity() {
         binding.btnTambah.setOnClickListener {
             val intent = Intent(this@KelolaBarangActivity, TambahBarangActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 

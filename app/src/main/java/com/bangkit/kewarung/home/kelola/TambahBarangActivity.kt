@@ -30,23 +30,16 @@ import java.io.File
 class TambahBarangActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityTambahBarangBinding
-    private var getFile: File? = null
     private lateinit var tambahBarangViewModel: TambahBarangViewModel
-    companion object{
-        val IMAGE_REQUEST_CODE = 100
-    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityTambahBarangBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnUploudFoto.setOnClickListener{
-            UpluodImage()
-        }
         binding.btnSimpan.setOnClickListener{
             Simpan()
-            intentMain()
         }
 
         val pref = UserSession.getInstance(dataStore)
@@ -54,30 +47,15 @@ class TambahBarangActivity : AppCompatActivity() {
         tambahBarangViewModel = ViewModelProvider(this, ViewModelFactory(pref))[TambahBarangViewModel::class.java]
     }
 
-    private fun UpluodImage(){
-        val intent =  Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
-        val chooser = Intent.createChooser(intent, "Choose a Picture")
-        launcherIntentGallery.launch(chooser)
-    }
-
     private fun Simpan(){
-        if (getFile != null) {
-            val file = reduceFileImage(getFile as File)
             val nama_produk = binding.namaBarang.text.toString()
             val harga = binding.harga.text.toString()
             val hargaProduk = Integer.parseInt(harga)
             val stok = 0
-            val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
-            val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
-                "photo",
-                file.name,
-                requestImageFile
-            )
             tambahBarangViewModel.getToken().observe(this) { token: String ->
                 tambahBarangViewModel.getUserId().observe(this){userId: String ->
                     val service = ApiConfig.getApiService()
-                        .addBarang("jwt=$token",userId,nama_produk,hargaProduk,stok,imageMultipart)
+                        .addBarang("jwt=$token",userId,nama_produk,hargaProduk,stok)
                     service.enqueue(object : Callback<AddBarangResponse> {
                         override fun onResponse(
                             call: Call<AddBarangResponse>,
@@ -85,12 +63,13 @@ class TambahBarangActivity : AppCompatActivity() {
                         ) {
                             if (response.isSuccessful) {
                                 val responseBody = response.body()
-                                if (responseBody != null && response.errorBody().toString() == "404") {
+                                if (responseBody != null) {
                                     Toast.makeText(
                                         this@TambahBarangActivity,
                                         "Berhasil Uploud",
                                         Toast.LENGTH_SHORT
                                     ).show()
+                                    intentMain()
                                 }
                             } else {
                                 Toast.makeText(
@@ -111,9 +90,6 @@ class TambahBarangActivity : AppCompatActivity() {
                     })
                 }
             }
-        } else {
-            Toast.makeText(this@TambahBarangActivity, "Silakan masukkan berkas gambar terlebih dahulu.", Toast.LENGTH_SHORT).show()
-        }
     }
 
     private fun intentMain() {
@@ -133,16 +109,4 @@ class TambahBarangActivity : AppCompatActivity() {
         }
     }
 
-    private val launcherIntentGallery = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == RESULT_OK) {
-            val selectedImg = result.data?.data as Uri
-            selectedImg.let { uri ->
-                val myFile = uriToFile(uri, this@TambahBarangActivity)
-                getFile = myFile
-                binding.image.setImageURI(uri)
-            }
-        }
-    }
 }

@@ -1,6 +1,6 @@
 package com.bangkit.kewarung.authentication.data
 
-data class KelolaBarangResponse(
-    val `data`: ArrayList<DataXXX>,
+data class KelolaResponse(
+    val id: String,
     val message: String
 )

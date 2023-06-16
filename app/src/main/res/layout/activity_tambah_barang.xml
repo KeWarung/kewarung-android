@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".home.kelola.TambahBarangActivity">
 
     <View
@@ -30,34 +32,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <View
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:scaleType="centerCrop"
-        android:layout_marginTop="120dp"
-        android:background="@drawable/kolom"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:scaleType="centerCrop"
-        android:layout_marginTop="130dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:src="@tools:sample/avatars"/>
-
-
     <Button
         android:id="@+id/btn_simpan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:text="@string/simpan"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
         android:background="@drawable/button_shape2"
@@ -70,22 +51,24 @@
         android:layout_height="wrap_content"
         android:text="@string/namabarang"
         android:textSize="16sp"
+        android:textColor="@color/black"
         android:textStyle="bold"
-        android:layout_marginBottom="320dp"
+        android:layout_marginTop="250dp"
         android:layout_marginStart="68dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
         android:id="@+id/namaBarang"
         android:layout_width="270dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="280dp"
+        android:layout_marginTop="280dp"
         android:background="@drawable/kolom"
         android:textSize="16sp"
         android:maxLines="1"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
@@ -94,36 +77,25 @@
         android:text="@string/hargabarang"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:layout_marginBottom="250dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="320dp"
         android:layout_marginStart="68dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
         android:id="@+id/harga"
         android:inputType="number"
         android:layout_width="270dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="210dp"
+        android:layout_marginTop="345dp"
         android:background="@drawable/kolom"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:maxLines="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <Button
-        android:id="@+id/btn_uploudFoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="280dp"
-        android:text="@string/uploudFoto"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:background="@drawable/button_shape2"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <ProgressBar
         android:id="@+id/progressBar"

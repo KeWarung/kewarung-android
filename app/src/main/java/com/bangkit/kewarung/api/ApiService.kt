@@ -2,10 +2,12 @@ package com.bangkit.kewarung.api
 
 import com.bangkit.kewarung.authentication.data.AddBarangResponse
 import com.bangkit.kewarung.authentication.data.KelolaBarangResponse
+import com.bangkit.kewarung.authentication.data.KelolaResponse
 import com.bangkit.kewarung.authentication.data.LoginResponse
 import com.bangkit.kewarung.authentication.data.LogoutResponse
 import com.bangkit.kewarung.authentication.data.ProfileResponse
 import com.bangkit.kewarung.authentication.data.RegisterResponse
+import com.bangkit.kewarung.authentication.data.SearchBarangResponse
 import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
@@ -35,15 +37,14 @@ interface ApiService {
     @GET("logout")
     fun logout():Call<LogoutResponse>
 
-    @Multipart
+    @FormUrlEncoded
     @POST("products/{userId}")
     fun addBarang(
         @Header("Cookie") token: String,
         @Path("userId") userId: String,
-        @Part("nama_produk") nama_produk: String,
-        @Part("harga") harga: Int,
-        @Part("stok") stok: Int,
-        @Part file: MultipartBody.Part
+        @Field("nama_produk") nama_produk: String,
+        @Field("harga") harga: Int,
+        @Field("stok") stok: Int
     ):Call<AddBarangResponse>
 
     @GET("products-users/{userId}")
@@ -51,4 +52,19 @@ interface ApiService {
         @Header("Cookie") token: String,
         @Path("userId") userId: String
     ):Call<KelolaBarangResponse>
+
+    @FormUrlEncoded
+    @PUT("products/{productId}")
+    fun updateDataBarang(
+        @Header("Cookie") token: String,
+        @Path("productId") productId: String,
+        @Field("harga") harga: Int,
+        @Field("stok") stok: Int
+    ):Call<KelolaResponse>
+
+    @GET("products-name/{search}")
+    fun getDataSearch(
+        @Header("Cookie") token: String,
+        @Path("search") search: String
+    ):Call<SearchBarangResponse>
 }

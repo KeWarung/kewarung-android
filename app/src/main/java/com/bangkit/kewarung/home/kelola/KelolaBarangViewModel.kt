@@ -16,7 +16,7 @@ import retrofit2.Response
 
 class KelolaBarangViewModel(private val pref: UserSession) : ViewModel() {
 
-    val dataUser = MutableLiveData<DataXXX>()
+    val dataUser = MutableLiveData<ArrayList<DataXXX>>()
 
     fun getToken(): LiveData<String> {
         return pref.getToken().asLiveData()
@@ -35,8 +35,6 @@ class KelolaBarangViewModel(private val pref: UserSession) : ViewModel() {
                 ) {
                     if(response.isSuccessful){
                         dataUser.postValue(response.body()?.data)
-                        Log.e("onFailure",response.body().toString())
-                        Log.e("onFailure",response.message().toString())
                     }
                 }
 
@@ -46,10 +44,9 @@ class KelolaBarangViewModel(private val pref: UserSession) : ViewModel() {
 
             }
         )
-
     }
 
-    fun getAllProduct():LiveData<DataXXX>{
+    fun getAllProduct():LiveData<ArrayList<DataXXX>>{
         return dataUser
     }
 
