@@ -30,11 +30,8 @@ import java.io.File
 class TambahBarangActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityTambahBarangBinding
-    private var getFile: File? = null
     private lateinit var tambahBarangViewModel: TambahBarangViewModel
-    companion object{
-        val IMAGE_REQUEST_CODE = 100
-    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,18 +48,10 @@ class TambahBarangActivity : AppCompatActivity() {
     }
 
     private fun Simpan(){
-        if (getFile != null) {
-            val file = reduceFileImage(getFile as File)
             val nama_produk = binding.namaBarang.text.toString()
             val harga = binding.harga.text.toString()
             val hargaProduk = Integer.parseInt(harga)
             val stok = 0
-            val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
-            val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
-                "photo",
-                file.name,
-                requestImageFile
-            )
             tambahBarangViewModel.getToken().observe(this) { token: String ->
                 tambahBarangViewModel.getUserId().observe(this){userId: String ->
                     val service = ApiConfig.getApiService()
@@ -101,9 +90,6 @@ class TambahBarangActivity : AppCompatActivity() {
                     })
                 }
             }
-        } else {
-            Toast.makeText(this@TambahBarangActivity, "Silakan masukkan berkas gambar terlebih dahulu.", Toast.LENGTH_SHORT).show()
-        }
     }
 
     private fun intentMain() {
