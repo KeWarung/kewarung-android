@@ -1,18 +1,17 @@
 package com.bangkit.kewarung.home.kasir
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
-import com.bangkit.kewarung.authentication.RegisterActivity
 import com.bangkit.kewarung.authentication.data.DataXXX
 import com.bangkit.kewarung.databinding.ActivityKasirBinding
-import com.bangkit.kewarung.home.kelola.KelolaActivity
 
 class KasirActivity : AppCompatActivity() {
 
     private lateinit var kasir: DataXXX
     private lateinit var binding: ActivityKasirBinding
+    private var jumlahAwal = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityKasirBinding.inflate(layoutInflater)
@@ -23,22 +22,48 @@ class KasirActivity : AppCompatActivity() {
             namaBarang.text = kasir.nama_produk
             stokBarang.text = kasir.stok.toString()
             harga.text = kasir.harga.toString()
-            totalBelanja.text = kasir.harga.toString()
+
+            add.setOnClickListener {
+                jumlahAwal += 1
+                jumlah.text = jumlahAwal.toString()
+                updateTotalBelanja()
+            }
+
+            minus.setOnClickListener {
+                if (jumlahAwal > 1) {
+                    jumlahAwal -= 1
+                    jumlah.text = jumlahAwal.toString()
+                    updateTotalBelanja()
+                }
+            }
+
             bayar.addTextChangedListener {
                 val bayarText = it?.toString()
                 val bayar = bayarText?.toIntOrNull() ?: 0
                 totalBayar.text = bayarText.toString()
-                val kembalian = kasir.harga - bayar
-                totalKembalian.text = kembalian.toString()
+                updateKembalian(bayar)
             }
-
         }
 
-        binding.btnTambah.setOnClickListener{
+        updateTotalBelanja()
+
+
+        binding.btnTambah.setOnClickListener {
             val i = Intent(this, AddActivity::class.java)
             startActivity(i)
             finish()
         }
+    }
+
+    private fun updateTotalBelanja() {
+        val belanja = kasir.harga * jumlahAwal
+        binding.totalBelanja.text = belanja.toString()
+    }
+
+    private fun updateKembalian(bayar: Int) {
+        val belanja = kasir.harga * jumlahAwal
+        val kembalian = bayar- belanja
+        binding.totalKembalian.text = kembalian.toString()
     }
 
     companion object {
