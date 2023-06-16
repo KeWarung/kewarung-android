@@ -18,7 +18,8 @@ KeWarung is an application that uses MVVM architecture to help manage warung eff
 
    ```sh
    git clone https://github.com/KeWarung/kewarung-android.git
-   cd kewarung-android
    ```
    
-2. Run the app from emulator or physical device 
+3. Open file on Android Studio 
+   
+4. Run the app from emulator or physical device 
